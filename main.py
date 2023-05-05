@@ -44,7 +44,7 @@ def generate_employees():
     lastnames = ["Иванов", "Сергеев", "Алексеев", "Михайлов"]
     patronymics = ["Иванович", "Сергеевич", "Алексеевич", "Михайлович"]
 
-    data = [[random.choice(names), random.choice(lastnames), random.choice(patronymics),
+    data = [[random.choice(lastnames), random.choice(names), random.choice(patronymics),
              datetime.date(1990, 10, 5) + datetime.timedelta(days=random.randint(-5000, 5000)),
              "+79" + str(random.randint(123456789, 999999999))]
             for i in range(1, 16)]
@@ -64,7 +64,7 @@ def generate_customers():
     data = []
     for i in range(1, 16):
         data.append(
-            [random.choice(names), random.choice(lastnames), random.choice(patronymics), random.choice(companies),
+            [random.choice(lastnames), random.choice(names), random.choice(patronymics), random.choice(companies),
              random.randint(1000000001, 9999999999), "+79" + str(random.randint(123456789, 999999999))])
 
     return templateTable + ', \n'.join([templateValues.format(*d) for d in data])
